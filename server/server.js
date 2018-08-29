@@ -46,8 +46,8 @@ io.on('connection', (socket) => { // register an event listener. requires a call
     users.addUser(socket.id, params.name, params.room); // add user to new room
 
     io.to(params.room).emit('updateUserList', users.getUserList(params.room)); // emit an event to everyone in the chatroom
-    socket.emit('newMessage', generateMessage('Admin', 'Welcome! (from the nodejs chat server)'));
-    socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined.`));
+    socket.emit('newMessage', generateMessage('gHost/Rider', 'Welcome!'));
+    socket.broadcast.to(params.room).emit('newMessage', generateMessage('gHost/Rider', `${params.name} has joined.`));
   });
 
   // listens for a message from the client 'createMessage' - client needs an emit function for it
